@@ -1,12 +1,62 @@
-# `vuex-api-helper`
+# `vuex-api-util`
 
 This util reduces boilerplate for API calls through VueX stores by providing some functions that generate state, mutations and runs actions.
 
-Before you go further, please know that this util is not something you need to use for _every_ API call you make! It tries to automate 90% of use cases; not everything. For example, this util would not make sense for an action that would never be called from a UI. If there is no UI, how are you going to show pending spinners, etc.? Please evaluate each use case and use responsibly!
+## Why would you need this?
 
-## Example
+This library will be useful if 
 
-> This example has a lot of pseudo code and has not been tested. **Read, parse and copy only the relevant bits**!
+* You are tired of writing boilerplate wiring in your components:
+
+```
+<template>
+    <loading v-if="isLoading"></loading>
+    <item-list v-if="!isLoading" :api-items="apiItems">...</item-list>
+    <error v-if="!isLoading && apiError" :api-error="apiError">...</error>
+</template>
+<script>
+export default{
+    name: 'ItemList',
+    data() {
+        return {
+            isLoading: false,
+            apiItems: [],
+            apiError: null
+        }
+    },
+    methods() {
+        async fetchItems() {
+            try {
+                const items = await this.$store.dispatch('fetchItems')
+                this.apiItems = items
+            } catch(err) {
+                this.apiError = err
+            }
+        }
+    }
+}
+</script>
+```
+
+* You are tired of manually wiring up API state in VueX.
+
+## Installation
+
+```
+npm i vuex-api-util
+```
+
+## Usage and examples
+
+> Before you go further, a word of caution: Please do not use this util for _every_ API call you make! It tries to automate 90% of use cases; not everything. For example, this util would not make sense for an action that would never be called from a UI. If there is no UI, how are you going to show pending spinners, etc.? Please evaluate each use case and use responsibly!
+
+## Simple Demo
+
+Here is a heavily commented demo: https://codesandbox.io/s/friendly-resonance-97zwd
+
+## More examples
+
+> These examples have a lot of pseudo code and has not been tested. Read them to understand the API! **Read, parse and copy only the relevant bits**.
 
 ### Simple, one resource setup
 
