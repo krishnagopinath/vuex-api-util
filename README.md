@@ -8,7 +8,7 @@ This library will be useful if
 
 * You are tired of writing boilerplate wiring in your components:
 
-```
+```vue
 <template>
     <loading v-if="isLoading"></loading>
     <item-list v-if="!isLoading" :api-items="apiItems">...</item-list>
