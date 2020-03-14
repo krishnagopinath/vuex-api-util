@@ -52,7 +52,7 @@ npm i vuex-api-util
 
 ## Simple Demo
 
-Here is a heavily commented demo: https://codesandbox.io/s/friendly-resonance-97zwd
+Here is the example repo: https://github.com/krishnagopinath/vuex-api-util-example
 
 ## More examples
 
