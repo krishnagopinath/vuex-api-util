@@ -11,7 +11,7 @@ This library will be useful if
 ```vue
 <template>
     <loading v-if="isLoading"></loading>
-    <item-list v-if="!isLoading" :api-items="apiItems">...</item-list>
+    <items v-if="!isLoading" :api-items="apiItems">...</items>
     <error v-if="!isLoading && apiError" :api-error="apiError">...</error>
 </template>
 <script>
