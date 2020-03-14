@@ -152,7 +152,7 @@ export default new Vuex.Store({
 
 #### Component usage
 
-```
+```vue
 <template>
     <div v-if="resourceApiStatus === 'not_started'">Not created yet. Click 'Create' button!</div>
     <div v-if="resourceApiStatus === 'pending'">Loading...</div>
